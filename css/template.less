@@ -1,0 +1,53 @@
+html {
+  //display: flex;
+  //flex-direction: column;
+}
+body {
+  //display: flex;
+  //flex-direction: column;
+  //flex: auto;
+                                height: 4000px;
+}
+.container {
+  width: @max-width;
+  padding: 0 @padding;
+}
+
+.head {
+  background-color: @color-main;
+  color: @color-one;
+  height: @head-height;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 20;
+}
+
+.user-info {
+  width: 100%;
+  height: 126px;
+  position: absolute;
+  top: @head-height;
+  background-color: #fff;
+}
+
+.parallax {
+  background-image: url("../img/bg.jpg");
+  height: 748px;
+  background-color: #f9f9f9;
+  .parallax-bg;
+}
+
+section {
+  max-width: @section-width;
+  padding: 0 @padding;
+  margin: 0 auto;
+}
+
+.gray {
+  background-color: #fafafa;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 44px;
+}

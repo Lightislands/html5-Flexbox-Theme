@@ -1,0 +1,584 @@
+
+// ------------------------------------------------ GLOBAL PARAMETERS
+
+@import "normalize.less";
+@import "mixins.less";
+@import "template.less";
+@import "elements.less";
+
+@max-width: 1030px;
+@head-height: 105px;
+@section-width: 700px;
+@padding: 15px;       // Side padding
+@color-main: #ff2a46; // head bg
+@color-one: #fff;     // head content
+@color-two: #db2c55;
+@gray: #8c8c8c;
+
+
+
+body, .chat-block .message {font-family: 'Lora', serif;}
+.head, .user-info, button, .sharing-panel, .tags, .social, .blog-items, .responses {font-family: 'Muli', sans-serif;}
+h1, h2, h3 {font-family: 'Ek Mukta', sans-serif;}
+q {font-family: 'Droid Serif', serif;}
+
+
+
+// ------------------------------------------------ INDEPENDENT MODULES
+
+// =================================================== Header
+.head {
+  position: fixed;
+  //top: 0;
+  //left: 0;
+  //margin: auto;
+  width: 100%;
+  transition: opacity 0.2s ease-in;
+
+  .container {
+    display: flex;
+    padding-top: 18px;
+
+    .fallow {
+      display: flex;
+      margin-right: auto;
+      padding: 6px 0 0 24px;
+      a {
+        display: block;
+        margin: -2px 0 0 19px;
+      }
+    }
+    .signin {
+      display: flex;
+      font-size: 0.8rem;
+      li {
+        display: inline-block;
+        color: @color-one;
+      }
+    }
+
+  }
+
+  nav {
+    width: @max-width;
+    margin-top: 20px;
+    ul {
+      display: flex;
+      justify-content: space-between;
+      margin-left: 15px;
+    }
+    li {
+      margin-right: auto;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      letter-spacing: 1px;
+    }
+  }
+
+}
+
+@media all and (max-width: @max-width) {
+  .head {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+@media all and (max-width: 534px){
+  .ico-logo {
+    width: 30px;
+  }
+}
+
+// -------------- Mobile menu
+
+.head {
+  nav {
+    #menu-toggle {
+      display: none;
+    }
+    .mob-menu-button {
+      display: none;
+    }
+    a {color: @color-one;}
+    @media all and (max-width: @max-width) {
+      .mob-menu-button {
+        float: right;
+        margin: -10px 50px 0 0;
+        display: block;
+      }
+      .mob-menu-button span {
+        display: block;
+        height: 50px;
+        color: @color-one;
+        font-weight: bold;
+        font-size: 1.4rem;
+        transform: rotate(90deg);
+      }
+      ul {
+        display: none;
+        float: right;
+
+        li {
+          background-color: @color-main;
+          width: 200px;
+          text-align: center;
+          padding: 10px;
+        }
+      }
+      #menu-toggle:checked + ul {
+        margin-top: 50px;
+        display: flex;
+        flex-direction: column;
+      }
+      .separator {
+        color: @color-main;
+        border-top: 2px solid @color-one;
+        padding: 0;
+        height: 0;
+      }
+    }
+  }
+}
+
+
+// =================================================== User Info
+
+.user-info {
+  > div {
+    max-width: @section-width;
+    height: auto;
+    margin: 0 auto;
+
+      figure {
+        display: flex;
+        padding-top: 35px;
+        font-size: 0.8rem;
+        //flex-direction: column;
+        //align-items: center;
+        div {
+          padding-left: 15px;
+        }
+
+        span {
+          display: flex;
+          flex-direction: row;
+          padding-top: 2px;
+
+          p {
+            line-height: 15px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            color: #000;
+          }
+        }
+        button {
+          margin-left: 11px;
+        }
+        p {
+          padding-top: 0;
+          line-height: 1.2rem;
+          color: #8d8d8d;
+        }
+        time {
+          line-height: 18px;
+          color: #8d8d8d;
+        }
+      }
+  }
+  img {
+    width: 60px;
+    height: 60px;
+  }
+
+}
+
+// =================================================== Sharing panel
+
+@panel-width: 44px;
+.sharing-panel {
+  width: @panel-width;
+  position: fixed;
+  top: 150px;
+  left: 60px;
+  text-align: center;
+  display: none;
+
+  a {
+    display: block;
+    margin: 0 auto;
+    margin-top: 20px;
+  }
+}
+@media all and (max-width: (@max-width + @panel-width + @padding * 3 + 120)){
+  .sharing-panel {
+    visibility: hidden;
+  }
+}
+
+
+// =================================================== Fixed width image
+
+
+.fixed-w {
+  display: flex;
+  width: 100%;
+  height: auto;
+  margin-top: 46px;
+
+  img {
+    object-fit: cover;
+  }
+}
+
+
+// =================================================== Profile
+
+.profile {
+  margin-top: 100px;
+  div {
+    padding-left: 20px;
+  }
+  div:first-child {
+    border-left: 3px solid #000;
+
+    a {
+      text-decoration: underline;
+      margin-right: 10px;
+      font-style: italic;
+    }
+    a::after {
+      content: "|";
+      margin-left: 10px;
+      display: inline-block;
+    }
+    a:last-child::after {
+      content: "";
+    }
+  }
+  h4 {
+    padding-top: 5px;
+  }
+  p {
+    padding-top: 30px;
+    font-style: italic;
+  }
+
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 16px;
+
+    span {
+      background-color: #f2f2f2;
+      padding: 2px 9px 0 9px;
+      margin: 5px 8px 0 0;
+      font-size: 0.9rem;
+      .border-radius (4px);
+    }
+  }
+
+
+  .social {
+    display: flex;
+    margin-top: 30px;
+    border-bottom: 1px solid #ebebeb;
+    padding-bottom: 20px;
+
+      .ico-message {
+        margin-right: auto;
+      }
+      a {
+        margin-right: 55px;
+      }
+      span {
+        display: block;
+        margin: -5px 0 0 30px;
+        font-size: 0.9rem;
+        color: #7e7e7e;
+      }
+  }
+
+
+}
+
+
+// =================================================== Intro
+
+.intro {
+  display: flex;
+  margin-top: 20px;
+
+  > div {
+    display: flex;
+    align-items: flex-start;
+    padding-left: 20px;
+
+      img {
+        width: 60px;
+        height: 60px;
+      }
+
+      div {
+        padding: 0 27px 0 15px;
+        width: 182px;
+      }
+
+      span {
+        line-height: 15px;
+        font-size: 1rem;
+        font-weight: bold;
+      }
+      p {
+        padding-top: 0;
+        line-height: 1.2rem;
+        color: #585858;
+        font-size: 0.9rem;
+      }
+  }
+
+
+}
+@media all and (max-width: 640px) {
+  .intro {
+    flex-direction: column;
+    > div {
+      margin-top: 60px;
+      div {
+        width: 100%;
+      }
+    }
+  }
+}
+
+
+
+// =================================================== Blog Items
+
+.blog-items {
+  margin-top: 38px;
+  display: flex;
+  //flex-wrap: nowrap;
+  justify-content: space-between;
+
+  > div {
+    .border-radius (6px);
+    .box-shadow;
+    background-color: #fff;
+
+    figure {
+      display: flex;
+      flex-direction: column;
+
+      img {
+        .border-top-radius(6px);
+        max-width: 312px;
+        width: 100%;
+        height: auto;
+      }
+      figcaption {
+        margin-top: 10px;
+        padding: 0 @padding;
+        color: #838383;
+        font-size: 0.9rem;
+      }
+      div {
+        .ellipsis (300px);
+        padding: 0 @padding;
+      }
+      h5 {  }
+    }
+
+    .bottom {
+      display: flex;
+      height: 38px;
+      margin: 35px 0 12px 0;
+      padding: 0 @padding;
+
+      div.name{
+        margin-right: auto;
+      }
+
+
+      > div:nth-child(2){
+        display: block;
+        width: 102px;
+        height: 25px;
+        float: left;
+        margin: 5px -3px 0 0;
+      }
+      .ico-heart-s {
+        display: block;
+        position: relative;
+        float: left;
+        span {
+          font-size: 0.8rem;
+          line-height: 15px;
+          display: block;
+          color: #838383;
+          padding: 3px 0 0 25px;
+          width: 50px;
+        }
+      }
+      .ico-heart-s::after {
+        content: "|";
+        position: absolute;
+        padding: 0;
+        top: 0;
+        line-height: 1rem;
+        left: 63px;
+        cursor: default;
+        height: 20px;
+        float: left;
+        color: #dedede;
+      }
+      .ico-bookmark-s {
+        display: block;
+        float: right;
+        margin-left: 16px;
+      }
+
+
+    }
+
+  }
+}
+@media all and (max-width: @max-width){
+  .gray {
+    padding: 0 @padding;
+  }
+  .blog-items {
+    flex-direction: column;
+    width: 95%;
+
+    > div {
+      margin-top: 20px;
+
+      figure {
+        img {
+          max-width: 100%;
+          height: auto;
+        }
+        div {
+          .ellipsis (100%);
+        }
+      }
+    }
+  }
+}
+
+
+// =================================================== Responses
+
+.responses {
+  margin-top: 60px;
+  padding-bottom: 20px;
+  width: @section-width;
+  > span {
+    color: #373737;
+    font-size: 0.9rem;
+    font-weight: bold;
+  }
+
+  .input-container {
+    position: relative;
+    margin-top: 10px;
+    padding: 28px 20px 0 60px;
+
+    height: 100px;
+    border: 1px solid #eaeaea;
+    .border-radius (6px);
+    background-color: #fff;
+    .focus-hide-placeholder;
+
+      input {
+        height: 40px;
+        width: 100%;
+        border: none;
+      }
+
+      span {
+        position: absolute;
+        top: 38px;
+        left: 20px;
+      }
+  }
+
+  .separator-s {
+    display: block;
+    width: 75px;
+    height: 2px;
+    margin: 30px 0 0 22px;
+    background-color: #8a8a8a;
+  }
+
+  .chat-title {
+    margin: 30px 0 0 22px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: @gray;
+      a {
+        color: @color-two;
+      }
+  }
+
+  .chat-block {
+    margin-top: @padding;
+    border: 1px solid #eaeaea;
+    .border-radius (6px);
+    background-color: #fff;
+
+      .chat-item:first-child {
+        border: none;
+      }
+      .chat-item {
+        padding: @padding + 5px;
+        border-top: 1px solid #eaeaea;
+
+        .name p {
+          color: @color-two;
+        }
+
+      }
+        .message {
+          margin-top: 10px;
+          font-size: 1.1rem;
+        }
+
+        .bottom {
+          margin-top: 23px;
+          display: flex;
+
+          .ico-heart-s {
+            display: block;
+            position: relative;
+            float: left;
+            margin-right: auto;
+            span {
+              font-size: 0.8rem;
+              line-height: 15px;
+              display: block;
+              color: #838383;
+              padding: 3px 0 0 25px;
+              width: 50px;
+            }
+          }
+
+          .ico-bookmark-s span {
+            display: block;
+            margin: 3px 0 0 -80px;
+
+            font-size: 0.8rem;
+            line-height: 15px;
+            color: #838383;
+          }
+        }
+  }
+}
+@media all and (max-width: @max-width){
+  .responses {
+    width: 100%;
+  }
+}
+

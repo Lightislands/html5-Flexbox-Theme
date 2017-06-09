@@ -1,0 +1,163 @@
+
+// ------------------------------------------------ MODULES REUSABLE ELEMENTS
+
+.hide {
+  opacity: 0;
+  transition: opacity 0.2s ease-in;
+}
+
+// =================================================== Sprite
+
+.ico-logo, .ico-circle, .ico-bookmark-s, .ico-bookmark, .ico-facebook-g,
+.ico-facebook, .ico-heart-s, .ico-heart, .ico-message, .ico-twitter-g,
+.ico-twitter {
+  background-image: url('../img/icons/sprite.png');
+  width: 24px;
+  height: 21px;
+}
+
+// Retina support
+
+@media (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (-webkit-min-device-pixel-ratio: 1.5), (min-device-pixel-ratio: 1.5), (min-resolution: 1.5dppx) {
+  .ico-logo, .ico-circle, .ico-bookmark-s, .ico-bookmark, .ico-facebook-g,
+  .ico-facebook, .ico-heart-s, .ico-heart, .ico-message, .ico-twitter-g,
+  .ico-twitter {
+    background-image: url('../img/icons/sprite-retina.png');
+    background-size: 228px 264px;
+    width: 24px;
+    height: 21px;
+  }
+}
+
+.ico-bookmark {
+  background-position: 0 0;
+}
+.ico-bookmark-s {
+  background-position: 0 -21px;
+}
+.ico-circle {
+  width: 45px;
+  height: 45px;
+  background-position: 0 -42px;
+}
+.ico-facebook {
+  background-position: 0 -87px;
+}
+.ico-facebook-g {
+  background-position: 0 -108px;
+}
+.ico-heart {
+  background-position: 0 -129px;
+}
+.ico-heart-s {
+  background-position: 0 -150px;
+}
+.ico-logo {
+  width: 228px;
+  height: 30px;
+  background-position: 0 -171px;
+}
+.ico-message {
+  background-position: 0 -201px;
+}
+.ico-twitter {
+  background-position: 0 -222px;
+}
+.ico-twitter-g {
+  background-position: 0 -243px;
+}
+
+
+// =================================================== Buttons
+
+
+.btn {
+  .border-radius(10px);
+  color: #fff;
+  width: 60px;
+  height: 17px;
+  border: 1px solid #fff;
+  font-size: 0.7rem;
+  line-height: 1px;
+  padding: 9px 10px 8px 10px;
+}
+.btn:hover {
+  background-color: @color-one;
+  color: @color-main;
+}
+.btn.red, .btn-mid {
+  color: #bc2745;
+  border: 1px solid #f32f57;
+}
+.btn.red:hover, .btn-mid:hover {
+  background-color: @color-main;
+  color: @color-one;
+}
+
+.btn-mid {
+  .border-radius(16px);
+  padding: 0 12px;
+  font-size: 0.8rem;
+}
+
+// =================================================== List
+
+ul.list {
+  padding: 35px 0 0 30px;;
+  list-style-type: disc;
+  li {
+    padding-top: 20px;
+  }
+  li:first-child {
+    padding-top: 0;
+  }
+}
+
+
+// =================================================== User icon with name
+
+.name {
+  display: flex;
+  img {
+    width: 36px;
+    height: 36px;
+    margin-right: 11px;
+    .border-radius(50%);
+  }
+  p {
+    font-size: 0.9rem;
+    padding: 0;
+    line-height: 15px;
+    width: 120px;
+  }
+  div {
+    margin-top: 5px;
+    span {
+      font-size: 0.8rem;
+      line-height: 15px;
+      display: block;
+      color: #838383;
+    }
+  }
+}
+
+
+// ===================================================
+
+.prime {
+  display: block;
+  position: relative;
+}
+.prime::after {
+  display: block;
+  content: "xxxxxxxx";
+  width: 45px;
+  height: 45px;
+  background: url("../img/icons/sprite.png") no-repeat 0 -42px fixed;
+
+  top: 10px;
+  right: 5px;
+  position: absolute;
+
+  border: 1px solid #f00;
+}
